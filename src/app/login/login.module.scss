@@ -1,0 +1,78 @@
+@use "../../scss/styles";
+
+.main {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 15px;
+  
+  .form {
+    background-color: styles.$lightgray;
+    padding: 30px 20px;
+    border-radius: 10px;
+    
+    h2 {
+      font-weight: 400;
+    }
+    
+    form {
+      margin-top: 15px;
+      position: relative;
+      
+      div {
+        position: relative;
+        margin-bottom: 10px;
+        
+        label {
+          display: block;
+          font-size: 0.8em;
+          margin-bottom: 8px;
+        }
+        
+        span {
+          position: absolute;
+          top: calc(50% + 2px);
+          left: 8px;
+          color: dimgray;
+        }
+        
+        input {
+          width: 100%;
+          padding: 12px;
+          padding-left: 32px;
+          border-radius: 5px;
+        }
+        
+        input:focus {
+          outline: 2px solid blue;
+        }
+      }
+      
+      button {
+        @include styles.blue-button;
+        width: 100%;
+        border: none;
+        margin-top: 5px;
+        justify-content: space-between ;
+        padding: 10px 15px;
+      }
+      
+      button:hover {
+        background-color: mediumblue;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  
+  .main {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    header {
+      width: 320px;
+    }
+  }
+  
+}

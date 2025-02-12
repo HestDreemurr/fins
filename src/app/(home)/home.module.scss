@@ -1,0 +1,87 @@
+@use "../../scss/styles";
+
+.mainSection {
+  background-color: styles.$lightgray;
+  padding: 30px 20px;
+  margin: 15px 0px;
+  border-radius: 10px;
+  
+  p {
+    font-size: 1.2em;
+    
+    a {
+      text-decoration: none;
+      color: blue;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  .login {
+    @include styles.blue-button;
+    margin-top: 15px;
+  }
+  
+  .login:hover {
+    background-color: darkblue;
+  }
+}
+
+.figure {
+  .finsMobile {
+    display: block;
+  }
+  
+  .finsDesktop {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  
+  .main {
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "main image";
+    align-content: center;
+    height: 100vh;
+    
+    header {
+      grid-area: header;
+    }
+    
+    section {
+      grid-area: main;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      
+      p {
+        font-size: 2em;
+      }
+    }
+    
+    figure {
+      grid-area: image;
+      
+      img {
+        margin: 10px;
+      }
+    }
+  }
+  
+  .figure {
+    .finsMobile {
+      display: none;
+    }
+    
+    .finsDesktop {
+      display: block;
+    }
+  }
+  
+}
