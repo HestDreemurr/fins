@@ -11,3 +11,12 @@ $lightgray: #ebebeb;
   gap: 10px;
   transition: all .5s ease;
 }
+
+@mixin link {
+  text-decoration: none;
+  color: blue;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
