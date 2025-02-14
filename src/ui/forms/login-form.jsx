@@ -1,4 +1,5 @@
 import { AtSymbolIcon, KeyIcon, ArrowRightIcon } from "@heroicons/react/24/outline"
+import PasswordInput from "./password-input.jsx"
 import { interFont } from "@/ui/fonts"
 
 export default function LoginForm() {
@@ -18,7 +19,7 @@ export default function LoginForm() {
         <span>
           <KeyIcon width={18} height={18} />
         </span>
-        <input type="password" id="password" name="password" placeholder="Insira sua Senha..." autoComplete="current-password" className={interFont.className} />
+        <PasswordInput placeholder="Insira sua Senha..." autoComplete="current-password" />
       </div>
       
       <button type="submit" className={interFont.className}>

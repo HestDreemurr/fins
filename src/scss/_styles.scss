@@ -64,7 +64,7 @@ $lightgray: #ebebeb;
       }
     }
     
-    button {
+    button[type="submit"] {
       @include button;
       width: 100%;
       border: none;
