@@ -1,6 +1,6 @@
 $lightgray: #ebebeb;
 
-@mixin blue-button {
+@mixin button {
   display: inline-flex;
   align-items: center;
   background-color: royalblue;
@@ -18,5 +18,63 @@ $lightgray: #ebebeb;
   
   &:hover {
     text-decoration: underline;
+  }
+}
+
+@mixin form {
+  background-color: $lightgray;
+  padding: 30px 20px;
+  border-radius: 10px;
+  
+  h2 {
+    font-weight: 400;
+  }
+  
+  form {
+    margin-top: 15px;
+    position: relative;
+    
+    div {
+      position: relative;
+      margin-bottom: 15px;
+      
+      label {
+        display: block;
+        font-size: 0.8em;
+        margin-bottom: 8px;
+      }
+      
+      span {
+        position: absolute;
+        top: calc(50% + 2px);
+        left: 8px;
+        color: dimgray;
+      }
+      
+      input {
+        border: 1px solid gray;
+        width: 100%;
+        padding: 12px;
+        padding-left: 32px;
+        border-radius: 5px;
+      }
+      
+      input:focus {
+        outline: 2px solid blue;
+      }
+    }
+    
+    button {
+      @include button;
+      width: 100%;
+      border: none;
+      margin-top: 5px;
+      justify-content: space-between ;
+      padding: 10px 15px;
+    }
+    
+    button:hover {
+      background-color: mediumblue;
+    }
   }
 }

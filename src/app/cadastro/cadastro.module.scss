@@ -7,25 +7,15 @@
   
   .form {
     @include styles.form;
-    
-    p {
-      font-size: 0.85em;
-      margin-top: 8px;
-      text-align: center;
-      
-      a {
-        @include styles.link;
-      }
-    }
   }
 }
 
 @media screen and (min-width: 768px) {
   
   .main {
+    height: 100vh;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     
     header {
       width: 320px;
