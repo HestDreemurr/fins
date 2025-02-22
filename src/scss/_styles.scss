@@ -35,8 +35,10 @@ $lightgray: #ebebeb;
     position: relative;
     
     div {
+      height: 70px;
       position: relative;
       margin-bottom: 15px;
+      margin-top: 20px;
       
       label {
         display: block;
@@ -46,7 +48,7 @@ $lightgray: #ebebeb;
       
       span {
         position: absolute;
-        top: calc(50% + 2px);
+        top: 50%;
         left: 8px;
         color: dimgray;
       }
@@ -62,9 +64,17 @@ $lightgray: #ebebeb;
       input:focus {
         outline: 2px solid blue;
       }
+      
+      p {
+        font-size: 0.7em;
+        margin-top: 5px;
+        margin-left: 2px;
+        color: #ff3f2b;
+        font-weight: 500;
+      }
     }
     
-    button[type="submit"] {
+    button {
       @include button;
       width: 100%;
       border: none;

@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline"
 
-export default function PasswordInput({ placeholder, autoComplete }) {
+export default function PasswordInput({ placeholder, autoComplete, style, value, onChange }) {
   let [isVisible, setIsVisible] = useState(false)
   
   const eyeStyle = {
@@ -22,6 +22,9 @@ export default function PasswordInput({ placeholder, autoComplete }) {
       id="password"
       placeholder={placeholder}
       autoComplete={autoComplete}
+      style={style}
+      value={value}
+      onChange={onChange}
       />
       {isVisible ? (
         <span style={eyeStyle} className="eye" onClick={handleClick}>
