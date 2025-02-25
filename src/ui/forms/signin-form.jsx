@@ -7,7 +7,7 @@ import { signinAction } from "@/actions/signin"
 import { useState, useActionState } from "react"
 
 export default function SigninForm() {
-  const [result, formAction] = useActionState(signinAction, null)
+  const [result, formAction, isPending] = useActionState(signinAction, null)
   
   const [formData, setFormData] = useState({
     name: "",
@@ -73,7 +73,7 @@ export default function SigninForm() {
         {result?.errors?.password && <p>{result.errors.password[0]}</p>}
       </div>
       
-      <button type="submit" className={interFont.className}>
+      <button type="submit" className={interFont.className} disabled={isPending}>
         Criar <ArrowRightIcon width={16} height={16} />
       </button>
     </form>

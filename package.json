@@ -1,5 +1,6 @@
 {
   "name": "fic-dashboard",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,6 +11,10 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@neondatabase/serverless": "^0.10.4",
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.4.7",
+    "jsonwebtoken": "^9.0.2",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

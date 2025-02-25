@@ -1,22 +1,31 @@
 "use server"
 
 import z from "zod"
+import bcrypt from "bcryptjs"
 import { formSchema } from "@/lib/signin-schema.js"
+import { saveUser } from "@/lib/database"
+import { generateToken } from "@/lib/jwt"
 
 export async function signinAction(prevState, formData) {
-  const data = formSchema.safeParse({
+  const form = formSchema.safeParse({
     name: formData.get("name"),
     email: formData.get("email"),
     password: formData.get("password")
   })
   
-  if (!data.success) {
+  if (!form.success) {
     return {
-      errors: data.error.flatten().fieldErrors
+      errors: form.error.flatten().fieldErrors
     }
   }
   
-  return {
-    success: "Campos válidos!"
-  }
+  const salt = await bcrypt.genSalt(10)
+  const hashPassword = await bcrypt.hash(form.data.password, salt)
+  form.data.password = hashPassword
+  
+  const user = saveUser(form.data)
+  
+  
+  
+  // Redirecionar o usuário para o Dashboard
 }
