@@ -74,7 +74,7 @@ export default function SigninForm() {
       </div>
       
       <button type="submit" className={interFont.className} disabled={isPending}>
-        Criar <ArrowRightIcon width={16} height={16} />
+        Criar {isPending ? (<span className="loading"></span>) : (<ArrowRightIcon width={16} height={16} />)}
       </button>
     </form>
   )

@@ -81,10 +81,30 @@ $lightgray: #ebebeb;
       margin-top: 5px;
       justify-content: space-between ;
       padding: 10px 15px;
+      
+      span {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border-top: 2px solid white;
+        animation: spin .5s ease infinite;
+      }
     }
     
     button:hover {
       background-color: mediumblue;
     }
   }
+}
+
+@keyframes spin {
+  
+  from {
+    transform: rotate(0deg);
+  }
+  
+  to {
+    transform: rotate(360deg);
+  }
+  
 }

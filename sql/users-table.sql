@@ -5,4 +5,4 @@ CREATE TABLE users (
   name TEXT(255) NOT NULL,
   email TEXT NOT NULL UNIQUE,
   password TEXT NOT NULL
-)
+);
