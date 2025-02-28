@@ -1,10 +1,12 @@
 "use server"
 
-import z from "zod"
+import { redirect } from "next/navigation"
 import bcrypt from "bcryptjs"
+import { randomUUID } from "node:crypto"
+
 import { formSchema } from "@/lib/signin-schema.js"
 import { saveUser } from "@/lib/database"
-import { generateToken } from "@/lib/jwt"
+import { createSession } from "@/lib/session"
 
 export async function signinAction(prevState, formData) {
   const form = formSchema.safeParse({
@@ -23,9 +25,15 @@ export async function signinAction(prevState, formData) {
   const hashPassword = await bcrypt.hash(form.data.password, salt)
   form.data.password = hashPassword
   
-  const user = saveUser(form.data)
+  form.data.id = randomUUID()
   
+  saveUser(form.data)
   
+  createSession({
+    id: form.data.id,
+    name: form.data.name,
+    email: form.data.email
+  })
   
-  // Redirecionar o usuário para o Dashboard
+  redirect("/dashboard")
 }

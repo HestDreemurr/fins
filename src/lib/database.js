@@ -5,8 +5,8 @@ const token = process.env.NEONDB_TOKEN
 const sql = neon(token)
 
 export async function saveUser(user) {
-  return await sql`
-  INSERT INTO users (name, email, password)
-  VALUES (${user.name}, ${user.email}, ${user.password})
+  await sql`
+  INSERT INTO users (id, name, email, password)
+  VALUES (${user.id}, ${user.name}, ${user.email}, ${user.password})
   `
 }
