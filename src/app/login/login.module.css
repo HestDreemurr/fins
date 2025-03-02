@@ -83,18 +83,6 @@
 .main .form form button:hover {
   background-color: mediumblue;
 }
-.main .form p {
-  font-size: 0.85em;
-  margin-top: 8px;
-  text-align: center;
-}
-.main .form p a {
-  text-decoration: none;
-  color: blue;
-}
-.main .form p a:hover {
-  text-decoration: underline;
-}
 
 @media screen and (min-width: 768px) {
   .main {

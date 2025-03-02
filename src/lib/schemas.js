@@ -1,6 +1,6 @@
 import z from "zod"
 
-export const formSchema = z.object({
+export const signinSchema = z.object({
   name: z.string()
     .min(1, { message: "O Nome é obrigatório" })
     .min(5, { message: "O nome precisa ter pelo menos 5 caracteres" })
@@ -16,5 +16,14 @@ export const formSchema = z.object({
     .regex(/[a-z]/, { message: "A Senha precisa ter ao menos uma letra minúscula" })
     .regex(/[1-9]/, { message: "A Senha precisa ter ao menos um número" })
     .regex(/[A-Z]/, { message: "A Senha precisa ter ao menos uma letra maiuscula" })
+    .trim()
+})
+
+export const loginSchema = z.object({
+  email: z.string()
+    .min(1, { message: "O Email é obrigatório" })
+    .trim(),
+  password: z.string()
+    .min(1, { message: "A Senha é obrigatória" })
     .trim()
 })

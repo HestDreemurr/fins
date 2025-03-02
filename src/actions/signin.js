@@ -4,12 +4,12 @@ import { redirect } from "next/navigation"
 import bcrypt from "bcryptjs"
 import { randomUUID } from "node:crypto"
 
-import { formSchema } from "@/lib/signin-schema.js"
+import { signinSchema } from "@/lib/schemas"
 import { saveUser } from "@/lib/database"
 import { createSession } from "@/lib/session"
 
 export async function signinAction(prevState, formData) {
-  const form = formSchema.safeParse({
+  const form = signinSchema.safeParse({
     name: formData.get("name"),
     email: formData.get("email"),
     password: formData.get("password")

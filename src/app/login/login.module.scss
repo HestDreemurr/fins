@@ -7,16 +7,6 @@
   
   .form {
     @include styles.form;
-    
-    p {
-      font-size: 0.85em;
-      margin-top: 8px;
-      text-align: center;
-      
-      a {
-        @include styles.link;
-      }
-    }
   }
 }
 
