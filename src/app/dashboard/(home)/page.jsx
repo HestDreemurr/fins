@@ -1,3 +1,5 @@
 export default function DashboardHome() {
-  return <h1>Dashboard</h1>
+  return (
+    <h2>Início</h2>
+  )
 }
