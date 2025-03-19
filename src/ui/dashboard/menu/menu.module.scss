@@ -1,12 +1,12 @@
 @use "../../../scss/styles";
 
-$transparent-blue: #00bfff6d;
+$transparent-blue: #00bfff47;
 
 @mixin navitem {
   background-color: styles.$lightgray;
   display: inline-flex;
   justify-content: center;
-  padding: 5px;
+  padding: 8px;
   border-radius: 5px;
   transition: background-color .5s;
   

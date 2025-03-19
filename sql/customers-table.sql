@@ -1,0 +1,9 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE customers (
+  id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+  userID UUID NOT NULL,
+  name TEXT NOT NULL,
+  avatar TEXT NOT NULL,
+  email TEXT NOT NULL UNIQUE
+);
