@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs"
 import { redirect } from "next/navigation"
 
 import { loginSchema } from "@/lib/schemas"
-import { getUser } from "@/lib/database"
+import { getUser } from "@/db/users"
 import { createSession } from "@/lib/session"
 
 export async function loginAction(prevState, formData) {

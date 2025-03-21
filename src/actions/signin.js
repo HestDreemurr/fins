@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs"
 import { randomUUID } from "node:crypto"
 
 import { signinSchema } from "@/lib/schemas"
-import { saveUser } from "@/lib/database"
+import { saveUser } from "@/db/users"
 import { createSession } from "@/lib/session"
 
 export async function signinAction(prevState, formData) {

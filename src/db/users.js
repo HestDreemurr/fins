@@ -1,8 +1,6 @@
-import "dotenv/config"
-import { neon } from "@neondatabase/serverless"
+import "server-only"
 
-const token = process.env.NEONDB_TOKEN
-const sql = neon(token)
+import sql from "@/lib/neon"
 
 export async function saveUser(user) {
   await sql`
