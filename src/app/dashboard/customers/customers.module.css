@@ -1,0 +1,53 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.customers {
+  margin: 10px;
+  padding: 5px;
+  background-color: #ebebeb;
+  border-radius: 5px;
+}
+.customers .customer {
+  background-color: white;
+  margin: 5px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 15px;
+}
+.customers .customer .top {
+  display: flex;
+  align-items: center;
+}
+.customers .customer .top figure {
+  margin-right: 8px;
+}
+.customers .customer .top figure img {
+  width: 40px;
+  border-radius: 50%;
+}
+.customers .customer .top h3 {
+  font-weight: normal;
+  font-size: 1em;
+}
+.customers .customer .email {
+  font-size: 0.9em;
+  color: gray;
+}
+.customers .middle {
+  display: flex;
+  margin-block: 10px;
+  padding-block: 15px;
+  border-block: 1px solid rgba(128, 128, 128, 0.337254902);
+  font-size: 0.95em;
+}
+.customers .middle div {
+  flex-basis: 50%;
+}
+.customers .invoices {
+  font-size: 0.9em;
+}

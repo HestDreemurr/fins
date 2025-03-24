@@ -1,0 +1,56 @@
+@use "../../../scss/styles";
+
+.customers {
+  margin: 10px;
+  padding: 5px;
+  background-color: styles.$lightgray;
+  border-radius: 5px;
+  
+  .customer {
+    background-color: white;
+    margin: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 15px;
+    
+    .top {
+      display: flex;
+      align-items: center;
+      
+      figure {
+        margin-right: 8px;
+        
+        img {
+          width: 40px;
+          border-radius: 50%;
+        }
+      }
+      
+      h3 {
+        font-weight: normal;
+        font-size: 1em;
+      }
+    }
+    
+    .email {
+      font-size: 0.9em;
+      color: gray;
+    }
+  }
+  
+  .middle {
+    display: flex;
+    margin-block: 10px;
+    padding-block: 15px;
+    border-block: 1px solid #80808056;
+    font-size: 0.95em;
+    
+    div {
+      flex-basis: 50%;
+    }
+  }
+  
+  .invoices {
+    font-size: 0.9em;
+  }
+}
