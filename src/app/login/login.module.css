@@ -18,16 +18,15 @@
 }
 .main .form h2 {
   font-weight: 400;
+  margin-bottom: 15px;
 }
 .main .form form {
-  margin-top: 15px;
   position: relative;
 }
 .main .form form div {
   height: 70px;
   position: relative;
-  margin-bottom: 15px;
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .main .form form div label {
   display: block;
@@ -50,9 +49,13 @@
 .main .form form div input:focus {
   outline: 2px solid blue;
 }
+.main .form form div .invalid {
+  outline: 2px solid #ff604f;
+  border: none;
+}
 .main .form form div p {
   font-size: 0.7em;
-  margin-top: 5px;
+  margin-top: 3px;
   margin-left: 2px;
   color: #ff3f2b;
   font-weight: 500;

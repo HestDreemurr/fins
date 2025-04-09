@@ -1,0 +1,50 @@
+@use "../../../../scss/styles";
+
+.form {
+  margin-top: 10px;
+  @include styles.form;
+  
+  .avatarInput {
+    img {
+      border-radius: 5px;
+    }
+    
+    input {
+      display: none;
+    }
+    
+    .avatarButton {
+      all: unset;
+      margin-left: 5px;
+    }
+  }
+  
+  .buttons {
+    all: unset;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    
+    a {
+      background-color: #cfcfcf;
+      color: black;
+      flex-basis: 50%;
+      text-align: center;
+      text-decoration: none;
+      padding: 10px 15px;
+      margin-top: 5px;
+      border-radius: 10px;
+      font-size: 0.8em;
+    }
+    
+    button {
+      flex-basis: 50%;
+      justify-content: center;
+      
+      .loading {
+        all: unset;
+        @include styles.loading;
+      }
+    }
+  }
+}

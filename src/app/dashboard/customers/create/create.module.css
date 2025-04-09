@@ -6,61 +6,57 @@
     transform: rotate(360deg);
   }
 }
-.main {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 15px;
-}
-.main .form {
+.form {
+  margin-top: 10px;
   background-color: #ebebeb;
   padding: 30px 20px;
   border-radius: 10px;
 }
-.main .form h2 {
+.form h2 {
   font-weight: 400;
   margin-bottom: 15px;
 }
-.main .form form {
+.form form {
   position: relative;
 }
-.main .form form div {
+.form form div {
   height: 70px;
   position: relative;
   margin-bottom: 20px;
 }
-.main .form form div label {
+.form form div label {
   display: block;
   font-size: 0.8em;
   margin-bottom: 8px;
 }
-.main .form form div span {
+.form form div span {
   position: absolute;
   top: 50%;
   left: 8px;
   color: dimgray;
 }
-.main .form form div input {
+.form form div input {
   border: 1px solid gray;
   width: 100%;
   padding: 12px;
   padding-left: 32px;
   border-radius: 5px;
 }
-.main .form form div input:focus {
+.form form div input:focus {
   outline: 2px solid blue;
 }
-.main .form form div .invalid {
+.form form div .invalid {
   outline: 2px solid #ff604f;
   border: none;
 }
-.main .form form div p {
+.form form div p {
   font-size: 0.7em;
   margin-top: 3px;
   margin-left: 2px;
   color: #ff3f2b;
   font-weight: 500;
 }
-.main .form form button {
+.form form button {
   display: inline-flex;
   align-items: center;
   background-color: royalblue;
@@ -76,24 +72,52 @@
   justify-content: space-between;
   padding: 10px 15px;
 }
-.main .form form button span {
+.form form button span {
   width: 16px;
   height: 16px;
   border-radius: 50%;
   border-top: 2px solid white;
   animation: spin 0.5s ease infinite;
 }
-.main .form form button:hover {
+.form form button:hover {
   background-color: mediumblue;
 }
-
-@media screen and (min-width: 768px) {
-  .main {
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-  }
-  .main header {
-    width: 320px;
-  }
+.form .avatarInput img {
+  border-radius: 5px;
+}
+.form .avatarInput input {
+  display: none;
+}
+.form .avatarInput .avatarButton {
+  all: unset;
+  margin-left: 5px;
+}
+.form .buttons {
+  all: unset;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.form .buttons a {
+  background-color: #cfcfcf;
+  color: black;
+  flex-basis: 50%;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin-top: 5px;
+  border-radius: 10px;
+  font-size: 0.8em;
+}
+.form .buttons button {
+  flex-basis: 50%;
+  justify-content: center;
+}
+.form .buttons button .loading {
+  all: unset;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border-top: 2px solid white;
+  animation: spin 0.5s ease infinite;
 }

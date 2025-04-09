@@ -1,0 +1,15 @@
+.links {
+  list-style: none;
+  display: flex;
+  font-size: 1.3em;
+}
+.links .link a {
+  text-decoration: none;
+  color: gray;
+}
+.links .link .active {
+  color: black;
+}
+.links .divider {
+  margin-inline: 5px;
+}

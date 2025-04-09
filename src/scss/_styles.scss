@@ -21,6 +21,14 @@ $lightgray: #ebebeb;
   }
 }
 
+@mixin loading {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border-top: 2px solid white;
+  animation: spin .5s ease infinite;
+}
+
 @mixin form {
   background-color: $lightgray;
   padding: 30px 20px;
@@ -28,17 +36,16 @@ $lightgray: #ebebeb;
   
   h2 {
     font-weight: 400;
+    margin-bottom: 15px;
   }
   
   form {
-    margin-top: 15px;
     position: relative;
     
     div {
       height: 70px;
       position: relative;
-      margin-bottom: 15px;
-      margin-top: 20px;
+      margin-bottom: 20px;
       
       label {
         display: block;
@@ -65,9 +72,14 @@ $lightgray: #ebebeb;
         outline: 2px solid blue;
       }
       
+      .invalid {
+        outline: 2px solid #ff604f;
+        border: none;
+      }
+      
       p {
         font-size: 0.7em;
-        margin-top: 5px;
+        margin-top: 3px;
         margin-left: 2px;
         color: #ff3f2b;
         font-weight: 500;
@@ -83,11 +95,7 @@ $lightgray: #ebebeb;
       padding: 10px 15px;
       
       span {
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        border-top: 2px solid white;
-        animation: spin .5s ease infinite;
+        @include loading;
       }
     }
     

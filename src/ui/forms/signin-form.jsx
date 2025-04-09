@@ -16,8 +16,8 @@ export default function SigninForm() {
   })
   
   const inputErrorStyle = {
-    border: "2px solid #ff604f",
-    outline: "none"
+    outline: "2px solid #ff604f",
+    border: "none"
   }
   
   return (

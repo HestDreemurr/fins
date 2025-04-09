@@ -27,3 +27,15 @@ export const loginSchema = z.object({
     .min(1, { message: "A Senha é obrigatória" })
     .trim()
 })
+
+export const customerSchema = z.object({
+  name: z.string()
+    .min(1, { message: "O nome é obrigatório" })
+    .min(3, { message: "O nome deve ter pelo menos 3 caracteres"  })
+    .max(30, { message: "O nome não pode ser maior que 30 caracteres" })
+    .trim(),
+  email: z.string()
+    .min(1, { message: "O E-mail é obrigatório" })
+    .email({ message: "E-mail inválido" })
+    .trim()
+})
