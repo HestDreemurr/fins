@@ -1,0 +1,19 @@
+.loading {
+  margin: auto;
+  margin-top: 20px;
+  width: 30px;
+  height: 30px;
+  border: 5px solid lightgray;
+  border-top: 5px solid mediumblue;
+  border-radius: 50%;
+  animation: spin 0.5s infinite ease;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
