@@ -3,7 +3,7 @@ export default function Customer({ customer, styles }) {
     <section className={styles.customer}>
       <div className={styles.top}>
         <figure>
-          <img src="/user-default-avatar.jpg" alt={customer.name} />
+          <img src={customer.avatar} alt={customer.name} />
         </figure>
         <h3>{customer.name}</h3>
       </div>

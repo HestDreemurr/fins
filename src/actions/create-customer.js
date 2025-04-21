@@ -2,7 +2,7 @@
 
 import { randomUUID } from "node:crypto"
 import { redirect } from "next/navigation"
-import { revalidateTag } from "next/cache"
+import { queryClient } from "@/lib/react-query"
 
 import { customerSchema } from "@/lib/schemas"
 import { saveCustomer } from "@/db/customers"
@@ -27,5 +27,4 @@ export async function createCustomerAction(prevState, formData) {
   saveCustomer(user.id, form.data)
   
   redirect("/dashboard/customers/")
-  revalidateTag("customers")
 }

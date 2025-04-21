@@ -1,11 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery
-} from "@tanstack/react-query"
+import { useQuery } from "@tanstack/react-query"
 
 import SearchSection from "@/ui/dashboard/search-section"
 import Customers from "@/ui/dashboard/customers"
@@ -14,17 +10,8 @@ import { lusitanaFont } from "@/ui/fonts"
 
 import styles from "./customers.module.css"
 
-const queryClient = new QueryClient()
 
-export default function Page() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <DashboardCustomers />
-    </QueryClientProvider>
-  )
-}
-
-function DashboardCustomers() {
+export default function DashboardCustomers() {
   const { data: customers, isPending } = useQuery({
     queryKey: ["customersData"],
     queryFn: async () => {
