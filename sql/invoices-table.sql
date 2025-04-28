@@ -5,6 +5,7 @@ CREATE TABLE invoices (
   userID UUID NOT NULL,
   customerID UUID NOT NULL,
   amount FLOAT NOT NULL,
-  createdOn DATE NOT NULL,
-  paid BOOLEAN NOT NULL
+  createdOn TEXT NOT NULL,
+  status TEXT NOT NULL
 );
+

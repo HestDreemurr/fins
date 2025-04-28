@@ -5,9 +5,21 @@ import { uploadCustomerAvatar } from "@/lib/huper"
 
 export async function getCustomers(userId) {
   const customers = await sql`
-  SELECT * FROM customers
-  WHERE userid = ${userId}
+  SELECT 
+    customers.id,
+    customers.name,
+    customers.email,
+    customers.avatar,
+    COUNT(invoices.id) AS invoicesCount,
+    SUM(CASE WHEN invoices.status = 'paid' THEN invoices.amount ELSE 0 END) AS paid,
+    SUM(CASE WHEN invoices.status = 'pending' THEN invoices.amount ELSE 0 END) AS pending
+  FROM customers
+  LEFT JOIN invoices ON customers.id = invoices.customerID
+  WHERE customers.userID = ${userId}
+  GROUP BY customers.id, customers.name, customers.email, customers.avatar
+  ORDER BY customers.name ASC
   `
+  
   return customers
 }
 

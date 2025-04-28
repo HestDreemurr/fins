@@ -13,19 +13,21 @@ export default function Customer({ customer, styles }) {
         <div>
           <h4>Pendente</h4>
           <p>
-            R$100
+            R${customer.pending.toFixed(2)}
           </p>
         </div>
         
         <div>
           <h4>Pago</h4>
           <p>
-            R$100
+            R${customer.paid.toFixed(2)}
           </p>
         </div>
       </div>
       
-      <p className={styles.invoices}>2 dívidas</p>
+      <p className={styles.invoices}>
+        {customer.invoicesCount ?? "Sem"} dívidas
+      </p>
     </section>
   )
 }
