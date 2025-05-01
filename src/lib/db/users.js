@@ -1,6 +1,6 @@
 import "server-only"
 
-import sql from "@/lib/neon"
+import sql from "./sql"
 
 export async function saveUser(user) {
   await sql`

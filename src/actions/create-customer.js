@@ -5,7 +5,7 @@ import { redirect } from "next/navigation"
 import { queryClient } from "@/lib/react-query"
 
 import { customerSchema } from "@/lib/schemas"
-import { saveCustomer } from "@/db/customers"
+import { saveCustomer } from "@/lib/db/customers"
 import { decryptSession } from "@/lib/session"
 
 export async function createCustomerAction(prevState, formData) {

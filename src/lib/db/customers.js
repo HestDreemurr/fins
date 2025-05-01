@@ -1,7 +1,7 @@
 import "server-only"
 
-import sql from "@/lib/neon"
-import { uploadCustomerAvatar } from "@/lib/huper"
+import sql from "./sql"
+import { uploadCustomerAvatar } from "./upload.js"
 
 export async function getCustomers(userId) {
   const customers = await sql`

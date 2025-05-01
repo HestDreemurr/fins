@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
 
 import { decryptSession } from "@/lib/session"
-import { getCustomers } from "@/db/customers"
+import { getCustomers } from "@/lib/db/customers"
 
 export async function GET(request) {
   const user = await decryptSession()
