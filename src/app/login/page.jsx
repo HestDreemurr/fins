@@ -13,6 +13,10 @@ export default function LoginPage() {
         <h2 className={lusitanaFont.className}>Faça Login para Continuar.</h2>
         
         <LoginForm />
+        
+        <p className={styles.anchor}>
+          Não possui uma conta? <Link href="/cadastro">Cadastre-se</Link>
+        </p>
       </section>
     </main>
   )

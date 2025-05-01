@@ -82,6 +82,19 @@
 .form form button:hover {
   background-color: mediumblue;
 }
+.form .anchor {
+  text-align: center;
+  font-size: 0.85em;
+  margin-top: 7px;
+}
+.form .anchor a {
+  text-decoration: none;
+  color: blue;
+  font-weight: bold;
+}
+.form .anchor a:hover {
+  text-decoration: underline;
+}
 .form .avatarInput img {
   border-radius: 5px;
 }

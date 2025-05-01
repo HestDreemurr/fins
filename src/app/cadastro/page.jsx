@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Header from "@/ui/header"
 import SigninForm from "@/ui/forms/signin-form"
 import { lusitanaFont } from "@/ui/fonts"
@@ -12,6 +13,10 @@ export default function SigninPage() {
         <h2 className={lusitanaFont.className}>Cadastre-se</h2>
         
         <SigninForm />
+        
+        <p className={styles.anchor}>
+          Já possui uma conta? <Link href="/login">Entre</Link>
+        </p>
       </section>
     </main>
   )

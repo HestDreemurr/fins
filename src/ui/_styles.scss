@@ -29,6 +29,22 @@ $lightgray: #ebebeb;
   animation: spin .5s ease infinite;
 }
 
+@mixin anchor {
+  text-align: center;
+  font-size: 0.85em;
+  margin-top: 7px;
+  
+  a {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
 @mixin form {
   background-color: $lightgray;
   padding: 30px 20px;
@@ -102,6 +118,10 @@ $lightgray: #ebebeb;
     button:hover {
       background-color: mediumblue;
     }
+  }
+  
+  .anchor {
+    @include anchor;
   }
 }
 
