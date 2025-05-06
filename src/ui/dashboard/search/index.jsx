@@ -3,7 +3,7 @@ import AddLink from "./add-link.jsx"
 
 import styles from "./section.module.css"
 
-function SearchSectionRoot({ children }) {
+function SearchRoot({ children }) {
   return (
     <section className={styles.searchSection}>
       {children}
@@ -11,10 +11,10 @@ function SearchSectionRoot({ children }) {
   )
 }
 
-const SearchSection = {
-  Root: SearchSectionRoot,
+const Search = {
+  Root: SearchRoot,
   Input: SearchInput,
   Link: AddLink
 }
 
-export default SearchSection
+export default Search

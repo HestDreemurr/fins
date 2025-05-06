@@ -1,38 +1,19 @@
-"use client"
-
-import Link from "next/link"
-import { useQuery } from "@tanstack/react-query"
-
-import SearchSection from "@/ui/dashboard/search-section"
-import Customers from "@/ui/dashboard/customers"
-import Loading from "@/ui/loading"
-import { lusitanaFont } from "@/ui/fonts"
+import CustomersTable from "@/ui/dashboard/customers/table"
+import { getCustomers } from "@/lib/db/data"
 
 import styles from "./customers.module.css"
 
+export const dynamic = "force-dynamic"
 
-export default function DashboardCustomers() {
-  const { data: customers, isPending } = useQuery({
-    queryKey: ["customersData"],
-    queryFn: async () => {
-      const res = await fetch("/api/customers")
-      const data = res.json()
-      return data
-    }
-  })
+export default async function DashboardCustomers(props) {
+  const searchParams = await props.searchParams
+  const query = searchParams?.query ?? ""
+  
+  const customers = await getCustomers(query)
   
   return (
     <main>
-      <h2 className={lusitanaFont.className}>Clientes</h2>
-      
-      <SearchSection.Root>
-        <SearchSection.Input onSearch={() => null} name="search-customers" placeholder="Pesquisar clientes..." />
-        <SearchSection.Link path="/dashboard/customers/create" />
-      </SearchSection.Root>
-      
-      {isPending ? <Loading /> : (
-        <Customers customers={customers} styles={styles} />
-      )}
+      <CustomersTable customers={customers} styles={styles} />
     </main>
   )
 }
