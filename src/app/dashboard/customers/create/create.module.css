@@ -35,14 +35,14 @@
   left: 8px;
   color: dimgray;
 }
-.form form div input {
+.form form div input, .form form div select {
   border: 1px solid gray;
   width: 100%;
   padding: 12px;
   padding-left: 32px;
   border-radius: 5px;
 }
-.form form div input:focus {
+.form form div input:focus, .form form div select:focus {
   outline: 2px solid blue;
 }
 .form form div .invalid {
@@ -95,16 +95,6 @@
 .form .anchor a:hover {
   text-decoration: underline;
 }
-.form .avatarInput img {
-  border-radius: 5px;
-}
-.form .avatarInput input {
-  display: none;
-}
-.form .avatarInput .avatarButton {
-  all: unset;
-  margin-left: 5px;
-}
 .form .buttons {
   all: unset;
   display: flex;
@@ -133,4 +123,14 @@
   border-radius: 50%;
   border-top: 2px solid white;
   animation: spin 0.5s ease infinite;
+}
+.form .avatarInput img {
+  border-radius: 5px;
+}
+.form .avatarInput input {
+  display: none;
+}
+.form .avatarInput .avatarButton {
+  all: unset;
+  margin-left: 5px;
 }

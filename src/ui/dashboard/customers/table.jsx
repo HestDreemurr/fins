@@ -4,7 +4,7 @@ import Customers from "./customers"
 
 export default function CustomersTable({ customers, styles }) {
   return (
-    <main>
+    <>
       <h2 className={lusitanaFont.className}>Clientes</h2>
       
       <Search.Root>
@@ -13,6 +13,6 @@ export default function CustomersTable({ customers, styles }) {
       </Search.Root>
       
       <Customers customers={customers} styles={styles} />
-    </main>
+    </>
   )
 }

@@ -39,3 +39,12 @@ export const customerSchema = z.object({
     .email({ message: "E-mail inválido" })
     .trim()
 })
+
+export const invoiceSchema = z.object({
+  customer: z.string()
+    .uuid(),
+  amount: z.coerce.number({ message: "O valor é obrigatório" })
+    .min(1, { message: "O valor é obrigatório." }),
+  status: z.string()
+    .min(1, { message: "O estado é obrigatório." })
+})

@@ -19,6 +19,16 @@ export async function getUser(email) {
   return user[0]
 }
 
+export async function getSimpleCustomers() {
+  const { id } = await decryptSession()
+  
+  const customers = await sql`
+  SELECT id, name FROM customers WHERE userID = ${id}
+  `
+  
+  return customers
+}
+
 export async function getCustomers(query) {
   const { id } = await decryptSession()
   
@@ -41,11 +51,22 @@ export async function getCustomers(query) {
   return customers
 }
 
-export async function saveCustomer(userId, customer) {
+export async function saveCustomer(customer) {
+  const { id: userId } = await decryptSession()
+  
   const avatarUrl = await uploadCustomerAvatar(customer.avatar)
   
   await sql`
   INSERT INTO customers (id, userid, name, avatar, email)
   VALUES (${customer.id}, ${userId}, ${customer.name}, ${avatarUrl}, ${customer.email})
+  `
+}
+
+export async function saveInvoice(invoice) {
+  const { id: userId } = await decryptSession()
+  
+  await sql`
+  INSERT INTO invoices (id, userID, customerID, amount, createdOn, status)
+  VALUES (${invoice.id}, ${userId}, ${invoice.customer}, ${invoice.amount}, ${invoice.createdOn}, ${invoice.status})
   `
 }

@@ -76,7 +76,7 @@ $lightgray: #ebebeb;
         color: dimgray;
       }
       
-      input {
+      input, select {
         border: 1px solid gray;
         width: 100%;
         padding: 12px;
@@ -84,7 +84,7 @@ $lightgray: #ebebeb;
         border-radius: 5px;
       }
       
-      input:focus {
+      input:focus, select:focus {
         outline: 2px solid blue;
       }
       
@@ -122,6 +122,35 @@ $lightgray: #ebebeb;
   
   .anchor {
     @include anchor;
+  }
+  
+  .buttons {
+    all: unset;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    
+    a {
+      background-color: #cfcfcf;
+      color: black;
+      flex-basis: 50%;
+      text-align: center;
+      text-decoration: none;
+      padding: 10px 15px;
+      margin-top: 5px;
+      border-radius: 10px;
+      font-size: 0.8em;
+    }
+    
+    button {
+      flex-basis: 50%;
+      justify-content: center;
+      
+      .loading {
+        all: unset;
+        @include loading;
+      }
+    }
   }
 }
 

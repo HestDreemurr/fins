@@ -1,5 +1,13 @@
+import InvoicesTable from "@/ui/dashboard/invoices/table"
+
+const invoices = [
+  
+]
+
 export default function DashboardInvoices() {
   return (
-    <h2>Dívidas</h2>
+    <main>
+      <InvoicesTable invoices={invoices} />
+    </main>
   )
 }

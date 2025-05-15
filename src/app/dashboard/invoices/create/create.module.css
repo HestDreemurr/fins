@@ -6,61 +6,57 @@
     transform: rotate(360deg);
   }
 }
-.main {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 15px;
-}
-.main .form {
+.form {
+  margin-top: 10px;
   background-color: #ebebeb;
   padding: 30px 20px;
   border-radius: 10px;
 }
-.main .form h2 {
+.form h2 {
   font-weight: 400;
   margin-bottom: 15px;
 }
-.main .form form {
+.form form {
   position: relative;
 }
-.main .form form div {
+.form form div {
   height: 70px;
   position: relative;
   margin-bottom: 20px;
 }
-.main .form form div label {
+.form form div label {
   display: block;
   font-size: 0.8em;
   margin-bottom: 8px;
 }
-.main .form form div span {
+.form form div span {
   position: absolute;
   top: 50%;
   left: 8px;
   color: dimgray;
 }
-.main .form form div input, .main .form form div select {
+.form form div input, .form form div select {
   border: 1px solid gray;
   width: 100%;
   padding: 12px;
   padding-left: 32px;
   border-radius: 5px;
 }
-.main .form form div input:focus, .main .form form div select:focus {
+.form form div input:focus, .form form div select:focus {
   outline: 2px solid blue;
 }
-.main .form form div .invalid {
+.form form div .invalid {
   outline: 2px solid #ff604f;
   border: none;
 }
-.main .form form div p {
+.form form div p {
   font-size: 0.7em;
   margin-top: 3px;
   margin-left: 2px;
   color: #ff3f2b;
   font-weight: 500;
 }
-.main .form form button {
+.form form button {
   display: inline-flex;
   align-items: center;
   background-color: royalblue;
@@ -76,36 +72,36 @@
   justify-content: space-between;
   padding: 10px 15px;
 }
-.main .form form button span {
+.form form button span {
   width: 16px;
   height: 16px;
   border-radius: 50%;
   border-top: 2px solid white;
   animation: spin 0.5s ease infinite;
 }
-.main .form form button:hover {
+.form form button:hover {
   background-color: mediumblue;
 }
-.main .form .anchor {
+.form .anchor {
   text-align: center;
   font-size: 0.85em;
   margin-top: 7px;
 }
-.main .form .anchor a {
+.form .anchor a {
   text-decoration: none;
   color: blue;
   font-weight: bold;
 }
-.main .form .anchor a:hover {
+.form .anchor a:hover {
   text-decoration: underline;
 }
-.main .form .buttons {
+.form .buttons {
   all: unset;
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.main .form .buttons a {
+.form .buttons a {
   background-color: #cfcfcf;
   color: black;
   flex-basis: 50%;
@@ -116,11 +112,11 @@
   border-radius: 10px;
   font-size: 0.8em;
 }
-.main .form .buttons button {
+.form .buttons button {
   flex-basis: 50%;
   justify-content: center;
 }
-.main .form .buttons button .loading {
+.form .buttons button .loading {
   all: unset;
   width: 16px;
   height: 16px;
@@ -128,14 +124,41 @@
   border-top: 2px solid white;
   animation: spin 0.5s ease infinite;
 }
-
-@media screen and (min-width: 768px) {
-  .main {
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  .main header {
-    width: 320px;
-  }
+.form form select {
+  background-color: white;
+}
+.form form .statusDiv {
+  all: unset;
+}
+.form form .status {
+  margin: 0;
+  display: flex;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+.form form .status div {
+  display: flex;
+  align-items: center;
+  margin-inline: 8px;
+  gap: 5px;
+}
+.form form .status div input:focus {
+  outline: none;
+}
+.form form .status div label {
+  display: flex;
+  gap: 3px;
+  padding: 7px;
+  border-radius: 15px;
+  color: white;
+}
+.form form .status div label[for=pending] {
+  background-color: darkgray;
+}
+.form form .status div label[for=paid] {
+  background-color: limegreen;
+}
+.form form .buttons {
+  margin-top: 20px;
 }

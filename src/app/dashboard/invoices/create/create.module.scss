@@ -1,0 +1,55 @@
+@use "../../../../ui/styles";
+
+.form {
+  margin-top: 10px;
+  @include styles.form;
+  
+  form {
+    select {
+      background-color: white;
+    }
+    
+    .statusDiv {
+      all: unset;
+    }
+    
+    .status {
+      margin: 0;
+      display: flex;
+      background-color: white;
+      border: 1px solid gray;
+      border-radius: 5px;
+      
+      div {
+        display: flex;
+        align-items: center;
+        margin-inline: 8px;
+        gap: 5px;
+        
+        input:focus {
+          outline: none;
+        }
+        
+        label {
+          display: flex;
+          gap: 3px;
+          padding: 7px;
+          border-radius: 15px;
+          color: white;
+        }
+        
+        label[for="pending"] {
+          background-color: darkgray;
+        }
+        
+        label[for="paid"] {
+          background-color: limegreen;
+        }
+      }
+    }
+    
+    .buttons {
+      margin-top: 20px;
+    }
+  }
+}
