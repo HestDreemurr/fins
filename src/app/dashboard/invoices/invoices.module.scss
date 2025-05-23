@@ -1,0 +1,82 @@
+@use "../../../ui/styles";
+
+.invoices {
+  background-color: styles.$lightgray;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  
+  .invoice {
+    background-color: white;
+    margin: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 15px;
+      border-bottom: 1px solid styles.$shadow;
+      
+      div > div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      
+      img {
+        border-radius: 50%;
+      }
+      
+      h3 {
+        font-size: 1em;
+        font-weight: 600;
+      }
+      
+      p {
+        font-size: 0.9em;
+        color: gray;
+        margin: 2px 0px 0px 2px;
+      }
+    }
+    
+    .status {
+      span {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        color: white;
+        font-size: 0.8em;
+        padding: 7px;
+        border-radius: 15px;
+      }
+    }
+    
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 15px;
+      
+      h4 {
+        font-size: 1.2em;
+        font-weight: 600;
+      }
+      
+      a, button {
+        color: black;
+        padding: 5px;
+        margin: 5px;
+        background-color: white;
+        border: 1px solid styles.$shadow;
+        border-radius: 5px;
+        height: auto;
+      }
+      
+      a {
+        padding-top: 10px;
+      }
+    }
+  }
+}

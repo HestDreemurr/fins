@@ -70,3 +70,42 @@ export async function saveInvoice(invoice) {
   VALUES (${invoice.id}, ${userId}, ${invoice.customer}, ${invoice.amount}, ${invoice.createdOn}, ${invoice.status})
   `
 }
+
+export async function getInvoices() {
+  const { id: userId } = await decryptSession()
+  
+  const invoices = await sql`
+  SELECT invoices.id, invoices.amount, invoices.createdOn, invoices.status, customers.name AS customerName, customers.email AS customerEmail, customers.avatar AS customerAvatar
+  FROM invoices
+  INNER JOIN customers ON invoices.customerID = customers.id
+  WHERE invoices.userID = ${userId}
+  GROUP BY invoices.id, invoices.amount, invoices.createdOn, invoices.status, customers.name, customers.email, customers.avatar
+  ORDER BY customers.name ASC
+  `
+  
+  return invoices
+}
+
+export async function deleteInvoice(invoiceId) {
+  await sql`
+  DELETE FROM invoices
+  WHERE id = ${invoiceId}
+  `
+}
+
+export async function updateInvoice(invoice) {
+  await sql`
+  UPDATE invoices
+  SET customerID = ${invoice.customer}, amount = ${invoice.amount}, status = ${invoice.status}
+  WHERE id = ${invoice.id}
+  `
+}
+
+export async function getInvoiceById(invoiceId) {
+  const invoice = await sql`
+  SELECT * FROM invoices
+  WHERE id = ${invoiceId}
+  `
+  
+  return invoice[0]
+}

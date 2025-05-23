@@ -1,13 +1,12 @@
 import InvoicesTable from "@/ui/dashboard/invoices/table"
+import { getInvoices } from "@/lib/db/data"
 
-const invoices = [
+import styles from "./invoices.module.css"
+
+export default async function DashboardInvoices() {
+  const invoices = await getInvoices()
   
-]
-
-export default function DashboardInvoices() {
   return (
-    <main>
-      <InvoicesTable invoices={invoices} />
-    </main>
+    <InvoicesTable invoices={invoices} styles={styles} />
   )
 }

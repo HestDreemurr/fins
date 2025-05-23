@@ -1,0 +1,75 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.invoices {
+  background-color: #ebebeb;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.invoices .invoice {
+  background-color: white;
+  margin: 5px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.invoices .invoice .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.337254902);
+}
+.invoices .invoice .top div > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.invoices .invoice .top img {
+  border-radius: 50%;
+}
+.invoices .invoice .top h3 {
+  font-size: 1em;
+  font-weight: 600;
+}
+.invoices .invoice .top p {
+  font-size: 0.9em;
+  color: gray;
+  margin: 2px 0px 0px 2px;
+}
+.invoices .invoice .status span {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: white;
+  font-size: 0.8em;
+  padding: 7px;
+  border-radius: 15px;
+}
+.invoices .invoice .bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+.invoices .invoice .bottom h4 {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.invoices .invoice .bottom a, .invoices .invoice .bottom button {
+  color: black;
+  padding: 5px;
+  margin: 5px;
+  background-color: white;
+  border: 1px solid rgba(128, 128, 128, 0.337254902);
+  border-radius: 5px;
+  height: auto;
+}
+.invoices .invoice .bottom a {
+  padding-top: 10px;
+}

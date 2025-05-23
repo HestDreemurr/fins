@@ -2,16 +2,15 @@
 
 import { redirect } from "next/navigation"
 import { revalidatePath } from "next/cache"
-import { randomUUID } from "node:crypto"
 
+import { updateInvoice } from "@/lib/db/data"
 import { invoiceSchema } from "@/lib/schemas"
-import { saveInvoice } from "@/lib/db/data"
 
-export async function createInvoiceAction(prevState, formData) {
+export async function editInvoiceAction(invoiceId, prevState, formData) {
   const form = invoiceSchema.safeParse({
     customer: formData.get("customer"),
     amount: formData.get("amount"),
-    status: formData.get("status") ?? ""
+    status: formData.get("status")
   })
   
   if (!form.success) {
@@ -20,10 +19,8 @@ export async function createInvoiceAction(prevState, formData) {
     }
   }
   
-  form.data.id = randomUUID()
-  form.data.createdOn = new Date().toISOString().split("T")[0]
-  
-  await saveInvoice(form.data)
+  form.data.id = invoiceId
+  await updateInvoice(form.data)
   
   redirect("/dashboard/invoices")
   revalidatePath("/dashboard/invoices")

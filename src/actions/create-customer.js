@@ -2,6 +2,7 @@
 
 import { randomUUID } from "node:crypto"
 import { redirect } from "next/navigation"
+import { revalidatePath } from "next/cache"
 
 import { customerSchema } from "@/lib/schemas"
 import { saveCustomer } from "@/lib/db/data"
@@ -24,4 +25,5 @@ export async function createCustomerAction(prevState, formData) {
   await saveCustomer(form.data)
   
   redirect("/dashboard/customers/")
+  revalidatePath("/dashboard/customers")
 }
