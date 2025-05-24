@@ -71,14 +71,14 @@ export async function saveInvoice(invoice) {
   `
 }
 
-export async function getInvoices() {
+export async function getInvoices(query) {
   const { id: userId } = await decryptSession()
   
   const invoices = await sql`
   SELECT invoices.id, invoices.amount, invoices.createdOn, invoices.status, customers.name AS customerName, customers.email AS customerEmail, customers.avatar AS customerAvatar
   FROM invoices
   INNER JOIN customers ON invoices.customerID = customers.id
-  WHERE invoices.userID = ${userId}
+  WHERE invoices.userID = ${userId} AND customers.name ILIKE ${`%${query}%`} OR customers.email ILIKE ${`%${query}%`}
   GROUP BY invoices.id, invoices.amount, invoices.createdOn, invoices.status, customers.name, customers.email, customers.avatar
   ORDER BY customers.name ASC
   `

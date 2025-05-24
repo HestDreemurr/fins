@@ -1,6 +1,9 @@
 "use client"
 
-import { useActionState } from "react"
+import { 
+  useState,
+  useActionState
+} from "react"
 import Link from "next/link"
 import clsx from "clsx"
 
@@ -17,6 +20,14 @@ import { interFont } from "@/ui/fonts"
 export default function CreateInvoiceForm({ customers, styles, defaultInvoice, defaultAction }) {
   const [result, formAction, isPending] = useActionState(defaultAction ?? createInvoiceAction, {})
   
+  const [formData, setFormData] = useState({
+    customer: defaultInvoice?.customerid ?? "",
+    amount: defaultInvoice?.amount ?? "",
+    status: defaultInvoice?.status ?? ""
+  })
+  
+  console.log(formData)
+  
   return (
     <form action={formAction}>
       <div>
@@ -30,7 +41,8 @@ export default function CreateInvoiceForm({ customers, styles, defaultInvoice, d
           id="customer"
           name="customer"
           className={interFont.className}
-          defaultValue={defaultInvoice?.customerid}
+          value={formData.customer}
+          onChange={(e) => setFormData({ ...formData, customer: e.target.value })}
         >
           {customers.map(customer => (
             <option key={customer.id} value={customer.id}>
@@ -53,7 +65,8 @@ export default function CreateInvoiceForm({ customers, styles, defaultInvoice, d
         name="amount"
         placeholder="Insira o valor da dívida..."
         className={clsx(interFont.className, result?.errors?.amount ? styles.invalid : "")}
-        defaultValue={defaultInvoice?.amount ?? ""}
+        value={formData.amount}
+        onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
         />
         {result?.errors?.amount && <p>{result.errors.amount[0]}</p>}
       </div>
@@ -67,7 +80,8 @@ export default function CreateInvoiceForm({ customers, styles, defaultInvoice, d
             name="status"
             id="pending"
             value="pending"
-            defaultChecked={defaultInvoice?.status === "pending"}
+            checked={formData.status === "pending"}
+            onChange={(e) => setFormData({ ...formData, status: e.target.value })}
             />
             <label htmlFor="pending">
               Pendente <ClockIcon width={16} height={16} />
@@ -80,7 +94,8 @@ export default function CreateInvoiceForm({ customers, styles, defaultInvoice, d
             name="status"
             id="paid"
             value="paid"
-            defaultChecked={defaultInvoice?.status === "paid"}
+            checked={formData.status === "paid"}
+            onChange={(e) => setFormData({ ...formData, status: e.target.value })}
             />
             <label htmlFor="paid">
               Pago <CheckIcon width={16} height={16} />
