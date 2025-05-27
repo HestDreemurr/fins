@@ -109,3 +109,51 @@ export async function getInvoiceById(invoiceId) {
   
   return invoice[0]
 }
+
+export async function getOverviewInfos() {
+  const { id: userId } = await decryptSession()
+  
+  const customersCount = sql`
+  SELECT COUNT(*) AS "totalCustomers" FROM customers
+  WHERE userID = ${userId}
+  `
+  const invoicesCount = sql`
+  SELECT COUNT(*) AS "totalInvoices" FROM invoices
+  WHERE userID = ${userId}
+  `
+  const invoiceStatusPromise = sql`
+  SELECT
+    SUM(CASE WHEN status = 'paid' THEN amount ELSE 0 END) AS "collected",
+    SUM(CASE WHEN status = 'pending' THEN amount ELSE 0 END) AS "pending"
+  FROM invoices
+  WHERE userID = ${userId}
+  `
+  
+  const [customers, invoices, invoiceStatus] = await Promise.all([
+    customersCount,
+    invoicesCount,
+    invoiceStatusPromise
+  ])
+  
+  return {
+    totalCustomers: customers[0].totalCustomers,
+    totalInvoices: invoices[0].totalInvoices,
+    collected: invoiceStatus[0].collected,
+    pending: invoiceStatus[0].pending
+  }
+}
+
+export async function getLatestInvoices() {
+  const { id: userId } = await decryptSession()
+  
+  const latestInvoices = await sql`
+  SELECT customers.avatar, customers.name, invoices.amount, invoices.id
+  FROM invoices
+  JOIN customers ON invoices.customerID = customers.id
+  WHERE invoices.userID = ${userId}
+  ORDER BY invoices.createdOn DESC
+  LIMIT 5
+  `
+  
+  return latestInvoices
+}
