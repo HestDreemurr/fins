@@ -43,7 +43,7 @@ export async function getCustomers(query) {
     SUM(CASE WHEN invoices.status = 'pending' THEN invoices.amount ELSE 0 END) AS pending
   FROM customers
   LEFT JOIN invoices ON customers.id = invoices.customerID
-  WHERE customers.userID = ${id} AND customers.name ILIKE ${`%${query}%`} OR customers.email ILIKE ${`%${query}%`}
+  WHERE customers.userID = ${id} AND customers.name ILIKE ${`%${query}%`} AND customers.email ILIKE ${`%${query}%`}
   GROUP BY customers.id, customers.name, customers.email, customers.avatar
   ORDER BY customers.name ASC
   `
@@ -78,7 +78,7 @@ export async function getInvoices(query) {
   SELECT invoices.id, invoices.amount, invoices.createdOn, invoices.status, customers.name AS customerName, customers.email AS customerEmail, customers.avatar AS customerAvatar
   FROM invoices
   INNER JOIN customers ON invoices.customerID = customers.id
-  WHERE invoices.userID = ${userId} AND customers.name ILIKE ${`%${query}%`} OR customers.email ILIKE ${`%${query}%`}
+  WHERE invoices.userID = ${userId} AND customers.name ILIKE ${`%${query}%`} AND customers.email ILIKE ${`%${query}%`}
   GROUP BY invoices.id, invoices.amount, invoices.createdOn, invoices.status, customers.name, customers.email, customers.avatar
   ORDER BY customers.name ASC
   `
@@ -136,10 +136,10 @@ export async function getOverviewInfos() {
   ])
   
   return {
-    totalCustomers: customers[0].totalCustomers,
-    totalInvoices: invoices[0].totalInvoices,
-    collected: invoiceStatus[0].collected,
-    pending: invoiceStatus[0].pending
+    totalCustomers: customers[0].totalCustomers ?? 0,
+    totalInvoices: invoices[0].totalInvoices ?? 0,
+    collected: invoiceStatus[0].collected ?? 0,
+    pending: invoiceStatus[0].pending ?? 0
   }
 }
 
