@@ -23,3 +23,27 @@
     }
   }
 }
+
+.invoices {
+  margin-top: 10px;
+  background-color: styles.$lightgray;
+  padding: 15px;
+  border-radius: 10px;
+  
+  div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    padding: 10px;
+    border-bottom: 1px solid styles.$shadow;
+    
+    img {
+      border-radius: 50%;
+    }
+    
+    span {
+      margin-left: auto;
+    }
+  }
+}
