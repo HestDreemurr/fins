@@ -8,6 +8,7 @@ export default function SignOutButton() {
   return (
     <button onClick={signOut}>
       <ArrowLeftStartOnRectangleIcon width={24} height={24} />
+      <span>Sair</span>
     </button>
   )
 }

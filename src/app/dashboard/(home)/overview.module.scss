@@ -47,3 +47,18 @@
     }
   }
 }
+
+@media screen and (min-width: 768px) {
+  
+  .infos {
+    display: flex;
+    flex-flow: row wrap;
+    
+    section {
+      flex-basis: 49%;
+      flex-shrink: 1;
+      margin-right: 5px;
+    }
+  }
+  
+}

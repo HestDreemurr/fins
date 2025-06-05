@@ -26,7 +26,7 @@ export default function Customer({ customer, styles }) {
       </div>
       
       <p className={styles.invoices}>
-        {customer.invoicesCount ?? "Sem"} dívidas
+        {customer.invoicescount ?? "Sem"} dívidas
       </p>
     </section>
   )

@@ -9,6 +9,8 @@ export default async function DashboardInvoices(props) {
   const invoices = await getInvoices(query)
   
   return (
-    <InvoicesTable invoices={invoices} styles={styles} />
+    <main>
+      <InvoicesTable invoices={invoices} styles={styles} />
+    </main>
   )
 }

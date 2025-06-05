@@ -1,0 +1,28 @@
+@media screen and (min-width: 768px) {
+  
+  .layout {
+    display: grid;
+    grid-template-rows: 200px 1fr;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 10px;
+    
+    nav {
+      display: flex;
+      flex-flow: column nowrap;
+      order: 1;
+      
+      a, button {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5px;
+        text-decoration: none;
+        
+        span {
+          display: inline-block;
+        }
+      }
+    }
+  }
+  
+}

@@ -14,6 +14,10 @@ $transparent-blue: #00bfff47;
     background-color: $transparent-blue;
     color: blue;
   }
+  
+  span {
+    display: none;
+  }
 }
 
 .menu {

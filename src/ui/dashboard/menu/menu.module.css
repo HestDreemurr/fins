@@ -25,6 +25,9 @@
   background-color: rgba(0, 191, 255, 0.2784313725);
   color: blue;
 }
+.menu a span {
+  display: none;
+}
 .menu .activeLink {
   background-color: rgba(0, 191, 255, 0.2784313725);
   color: blue;
@@ -42,4 +45,7 @@
 .menu button:hover {
   background-color: rgba(0, 191, 255, 0.2784313725);
   color: blue;
+}
+.menu button span {
+  display: none;
 }
